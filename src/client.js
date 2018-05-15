@@ -239,6 +239,8 @@ class Client extends Base {
     message = envelope.body.toString({pretty: prettyPrint});
     xml = envelope.doc.end({pretty: prettyPrint});
 
+    xml = xml.replace(/&lt;/g, "<").replace(/&gt;/g, '>');
+    
     debug('Request envelope: %s', xml);
 
     self.lastMessage = message;
